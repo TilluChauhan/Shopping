@@ -1,3 +1,11 @@
+<?php   
+	include 'config/config.php';
+		
+	$pgs = "select * from product_list";
+	$result = mysqli_query($conn, $pgs);
+	
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
