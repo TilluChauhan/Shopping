@@ -82,7 +82,7 @@
 							<td><?php echo $catch['Mobile'];?></td>
 							<td><?php echo $catch['Status'];?></td>
 							<td><?php echo $catch['CreatedDate'];?></td>
-							<td><button class="btn btn-sm btn-primary">Edit</button></td>
+							<td><a  href="register.php?edit=<?php echo $catch['UserId']; ?>" class="btn btn-sm btn-primary">Edit</a></td>
 						</tr>
 					<?php
 					}

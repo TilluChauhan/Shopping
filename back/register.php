@@ -5,6 +5,20 @@
 		header('Location: login.php');
 		
 	}
+	
+	
+	$editMode = true;
+	$editID = null;
+	$catch = null;
+		
+	if(isset($_GET['edit'])){
+	$editID = $_GET['edit'];
+	$editMode = false;	
+	$sql = "select * from user where UserId = '".$editID."' ";
+	$result = mysqli_query($conn, $sql);	
+	$catch = mysqli_fetch_array($result);
+		
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,16 +65,16 @@
       <!-- Table -->
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
-          <div class="card bg-secondary border-0">
+         <div class="card bg-secondary border-0">
             <div class="card-body px-lg-5 py-lg-5">              
-                <h1 class="text-center text-muted mb-4">REGISTER</h1>              
+                <h1 class="text-center text-muted mb-4">REGISTER</h1>
               <div role="form">
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" id="name" placeholder="Name" type="text">
+                    <input class="form-control" id="name" value="<?php echo $catch ? $catch['Name'] : '' ?>" placeholder="Name" type="text">
                   </div>
                 </div>
                 <div class="form-group">
@@ -68,7 +82,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" id="email" placeholder="Email" type="email">
+                    <input class="form-control" id="email" placeholder="Email" value="<?php echo $catch ? $catch['Email'] : '' ?>" type="email">
                   </div>
                 </div>
                 <div class="form-group">
@@ -76,7 +90,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" id="pswrd" placeholder="Password" type="password">
+                    <input class="form-control" id="pswrd" placeholder="Password" value="<?php echo $catch ? $catch['Password'] : '' ?>" type="password">
                   </div>
                 </div>
 				<div class="form-group">
@@ -84,7 +98,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                     </div>
-                    <input class="form-control" id="mobile" placeholder="Mobile" type="number">
+                    <input class="form-control" id="mobile" placeholder="Mobile" value="<?php echo $catch ? $catch['Mobile'] : '' ?>" type="number">
                   </div>
                 </div>
 				<div class="form-group">
@@ -107,8 +121,21 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" id="sign" class="btn btn-primary mt-4">Create account</button>
-                </div>
+                <?php
+					if($editMode){
+						?>
+						<button type="button" id="sign" class="btn btn-primary mt-4">Create account</button>
+						
+						<?php
+					}else{
+						?>
+							<button type="button" id="update" class="btn btn-primary mt-4">Update</button>
+						<?php
+					}
+				?>
+				  
+                
+				</div>
               </div>
             </div>
           </div>
@@ -133,7 +160,7 @@
 				store.append('l_email', email);
 				store.append('l_pass', password);
 				store.append('l_mobile', mobile);
-				store.append('l_pic',  photo);	
+				store.append('l_pic',  photo);		
 					
 				$.ajax({
 					url: 'service/register.php',
@@ -151,6 +178,43 @@
 				});
 				
 
+			});	
+		});
+		
+		
+		
+		$(document).ready(function(){
+			$("#update").click(function(){
+				var name = $("#name").val();
+				var email = $("#email").val();
+				var pass = $("#pswrd").val();
+				var mobile = $("#mobile").val();
+				var userId = '<?php echo $editID ?>';
+				//var photo = $("#photo")[0].files[0];
+				
+				console.log(userId);
+				var push = new FormData();
+				push.append('U_name', name);
+				push.append('U_email', email);
+				push.append('U_pass', pass);
+				push.append('U_mobile', mobile);
+				push.append('U_userId', userId);
+				//push.append('U_pic',  photo);	
+					
+				$.ajax({
+					url: 'service/update-register.php',
+					type: 'POST',
+					data: push,
+					contentType: false,
+					processData: false,	
+					success: function(response){
+						if(response == 1){
+							window.location.reload();
+						}else{
+							
+						}
+					}
+				});
 			});	
 		});
 		
