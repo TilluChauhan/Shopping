@@ -1,3 +1,10 @@
+<?php 
+	include 'back/config/config.php';
+	$sql = "select * from product_list where P_CatId = 1";
+	$result = mysqli_query($conn, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,118 +89,32 @@
 						<h2>RECENTLY VIEWED PRODUCTS</h2>
 					<div class="main-div-three-products_a">
 						<div class="owl-carousel owl-theme" id="slider2">
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/one.jpeg" />
-												<i class="far fa-heart heart_a"></i>
+								<?php
+									while($row = mysqli_fetch_array($result)){
+										?>
+											<div class="item">
+												<div class="three-slidproducts_a">
+													<a href="#">
+														<div class="three-pro-one-image_a">
+															<img src="back/images/upload_a/<?php echo $row['Front_image'] ?>" />
+															<i class="far fa-heart heart_a"></i>
+														</div>
+														<div class="three-pro-one-text_a">
+															<p><?php echo $row['Name'] ?></p>
+															<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+															<div><span class="rate_a">RS <?php echo $row['Price'] ?></span></div>
+															<button>Buy</button>
+															<span class="discount_a">92%OFF</span>
+														</div>
+													</a>
+												</div>
 											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/two.jpeg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/three.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/four.jpeg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/five.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/six.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/seven.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
+										<?php
+									}
+								?>
+								
+								
+								
 							</div>
 						</div>
 					</div>
