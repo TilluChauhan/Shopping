@@ -5,6 +5,21 @@
 	if(!isset ($_SESSION['user'])){
 		header('Location: login.php');
 	}
+	
+	$AddMode = true;
+	$editId = null;
+	$catch = null;
+	if(isset($_GET['edit'])){
+		$editId = $_GET['edit'];	
+		$AddMode = false;
+		$pgs = "select * from Product_list where Product_ID = '".$editId."'";
+		$result = mysqli_query($conn, $pgs);
+		$catch = mysqli_fetch_array($result);
+		
+	}
+	
+	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,13 +86,13 @@
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-username">Product Name</label>
-								<input type="text" id="productname" class="form-control" placeholder="Product Name">
+								<input type="text" id="productname" value="<?php echo $catch ? $catch['Name'] : '' ?>" class="form-control" placeholder="Product Name">
 							  </div>
 							</div>
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-email">Price</label>
-								<input type="email" id="price" class="form-control" placeholder="Enter Price">
+								<input type="email" id="price" value="<?php echo $catch ? $catch['Price'] : ''?>"class="form-control" placeholder="Enter Price">
 							  </div>
 							</div>
 						  </div>
@@ -85,13 +100,13 @@
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-first-name">SQA Number</label>
-								<input type="text" id="sqanumber" class="form-control" placeholder="SQA Number">
+								<input type="text" id="sqanumber" value="<?php echo $catch ? $catch['SQA_Number'] : ''?>"class="form-control" placeholder="SQA Number">
 							  </div>
 							</div>
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-last-name">Quantity</label>
-								<input type="text" id="quantity" class="form-control" placeholder="quantity">
+								<input type="text" id="quantity" value="<?php echo $catch ? $catch['Quantity'] : ''?>" class="form-control" placeholder="quantity">
 							  </div>
 							</div>
 						  </div>
@@ -99,13 +114,13 @@
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-first-name">Size</label>
-								<input type="text" id="size" class="form-control" placeholder="Size">
+								<input type="text" id="size" value="<?php echo $catch ? $catch['Size'] : ''?>"class="form-control" placeholder="Size">
 							  </div>
 							</div>
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-last-name">Color</label>
-								<input type="text" id="color" class="form-control" placeholder="color">
+								<input type="text" id="color" value="<?php echo $catch ? $catch['Color'] : ''?>" class="form-control" placeholder="color">
 							  </div>
 							</div>
 						 </div>
@@ -119,13 +134,13 @@
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-last-name">Product Image 2</label>
-								<input type="file" id="y_image" class="form-control">
+								<input type="file" id="y_image"  class="form-control">
 							  </div>
 							</div>
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-last-name">Product Image 3</label>
-								<input type="file" id="z_image" class="form-control">
+								<input type="file" id="z_image"  class="form-control">
 							  </div>
 							</div>
 						 </div>
@@ -134,11 +149,24 @@
 						<div class="pl-lg-4">
 						  <div class="form-group">
 							<label class="form-control-label">Description</label>
-							<textarea rows="4" id="description" class="form-control" placeholder="A few words about you ..."></textarea>
+							<textarea rows="4" id="description" value="<?php echo $catch ? $catch['Description'] : '' ?>" class="form-control" placeholder="A few words about you ..."></textarea>
 						  </div>
 						</div>
 							<div class="col-lg-6 col-5 ">
-							  <button class="btn btn-sm btn-primary" id="submit">submit</button>
+							  <?php 
+								if($AddMode){
+									?>
+									  <button class="btn btn-sm btn-primary" id="submit">submit</button>									
+									<?php									
+								}else{
+									?>
+										<button class="btn btn-sm btn-primary" id="update">Update</button>									
+									<?php									
+								}
+							  ?>
+							  
+							  
+							  
 							  <a href="#" class="btn btn-sm btn-primary">reset</a>
 							</div>
 						</div>	
@@ -195,6 +223,45 @@
 							
 						}
 					}
+				})
+			});
+		});
+		
+		$(document).ready(function(){
+			$("#update").click(function(){
+				var Id = '<?php echo $editId ?> ';
+				var name = $("#productname").val();
+				var price = $("#price").val();
+				var sqa = $("#sqanumber").val();
+				var quant = $("#quantity").val();
+				var size = $("#size").val();
+				var color = $("#color").val();
+				var dscpton = $("#description").val();
+								
+				var data = new FormData();
+				data.append('UP_Id', Id);
+				data.append('UP_name', name);
+				data.append('UP_price', price);
+				data.append('UP_sqa', sqa);
+				data.append('UP_quant', quant);
+				data.append('UP_size', size);
+				data.append('UP_color', color);
+				data.append('UP_des', dscpton);
+			
+				$.ajax({
+					url: 'service/product-update.php',	
+					type: 'POST',
+					data: data,
+					contentType: false,
+					processData: false,
+					success: function(response){
+						if(response == 1){
+							window.location.reload();
+						}else{
+
+						}
+					}
+					
 				})
 			});
 		});

@@ -6,6 +6,8 @@
 	include 'config/config.php'; 
 	$pgs = "select * from Product_list";
 	$result = mysqli_query($conn, $pgs);
+	
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,6 +75,7 @@
                     <th scope="col" class="sort" data-sort="Description">Description</th>
                     <th scope="col" class="sort" data-sort="Status">Status</th>
                     <th scope="col" class="sort" data-sort="createddate">CreatedDate</th>
+                    <th scope="col" class="sort" data-sort="createddate"></th>
                   </tr>
                 </thead>
                 <tbody class="list">
@@ -102,6 +105,7 @@
 					<td><?php echo $catch['Description']; ?></td>
 					<td><?php echo $catch['Status'];?></td>
 					<td><?php echo $catch['CreatedDate'];?></td>
+					<td><a href="add.php?edit=<?php echo $catch['Product_ID']; ?>" class="btn btn-sm btn-primary">Edit</a></td>
 				</tr>	  
 				<?php
 				  }
