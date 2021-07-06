@@ -93,9 +93,9 @@
 					</div>
 					<div class="three-product_a">
 						<h2>RECENTLY VIEWED PRODUCTS</h2>
-					<div class="main-div-three-products_a">
-						<div class="owl-carousel owl-theme" id="slider2">
-							<?php
+						<div class="main-div-three-products_a">
+							<div class="owl-carousel owl-theme" id="slider2">
+								<?php
 									while($row = mysqli_fetch_array($result)){
 										?>
 											<div class="item">
@@ -121,9 +121,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<nav class="collapse navbar-collapse" id="collapsibleNavbar">
+					<nav class="collapse navbar-collapse" id="collapsibleNavbar">
 				<div class="three-left_a">
 					<ul class="list-group">
 					<span class="list-group-item borderless">TOP CATEGORIES</span>
@@ -255,22 +253,27 @@
 						</ul>
 					</div>
 				</div>
-			</nav>	
+			</nav>
+				</div>
+			</div>
+				
 		</div>
-		<div class="main-div-three-products_a ">
-		<div class="row">		
-			<div class=" col-md-12">	
-				<div class="scan-main_a">
-					<div class="scan_a scan-img_a">
-						<img src="asset/code.png" />
-					</div>
-					<div class="scan_a scan-text_a">
-						<h2>Enjoy Convenient Order Tracking</h2>
-						<h3>Scan to download app</h3>
+		<div style="padding:20px 0; background-color:#fff;">
+			<div class="container">
+				<div class="row">		
+				<div class=" col-md-12">	
+					<div class="scan-main_a">
+						<div class="scan_a scan-img_a">
+							<img src="asset/code.png" />
+						</div>
+						<div class="scan_a scan-text_a">
+							<h2>Enjoy Convenient Order Tracking</h2>
+							<h3>Scan to download app</h3>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			</div>
 		</div>		
 	</div>
 </section>
