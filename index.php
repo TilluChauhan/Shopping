@@ -1,9 +1,14 @@
+
 <?php   
-	/*include 'config/config.php';
+	include 'back/config/config.php';
 		
 	$pgs = "select * from product_list";
 	$result = mysqli_query($conn, $pgs);
-	*/
+	
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,14 +54,14 @@
 		<nav class="navbar navbar-expand-sm  navbar-dark">
 		<div class="navbar-brand" href="index.php">
 			<a href="index.php"><img src="asset/snapfull.png" alt="Logo" style="width:100%; max-width:168px;"></a>
-			<i class="fas fa-bars"></i>
+			<button type="button" class="btn btn-danger " data-toggle="collapse" data-target="#collapsibleNavbar"><i class="fas fa-bars"></i></button>
 		</div>
-		<form class="form-inline" action="/action_page.php" style="flex:1">
+		<div class="form-inline" action="/action_page.php" style="flex:1">
 			<div class="header-search_a">
 				<input class="form-control mr-sm-2" type="text" placeholder="Search products & brands">
 				<button><i class="fas fa-search"></i>Search</button>
 			</div>
-		</form>
+		</div>
 		<div class="header-ul_a">
 			<ul class="nav justify-content-end ">
 				<li class="nav-item">
@@ -90,127 +95,38 @@
 						<h2>RECENTLY VIEWED PRODUCTS</h2>
 					<div class="main-div-three-products_a">
 						<div class="owl-carousel owl-theme" id="slider2">
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/one.jpeg" />
-												<i class="far fa-heart heart_a"></i>
+							<?php
+									while($row = mysqli_fetch_array($result)){
+										?>
+											<div class="item">
+												<div class="three-slidproducts_a">
+													<a href="#">
+														<div class="three-pro-one-image_a">
+															<img src="back/images/upload_a/<?php echo $row['Front_image'] ?>" />
+															<i class="far fa-heart heart_a"></i>
+														</div>
+														<div class="three-pro-one-text_a">
+															<p><?php echo $row['Name'] ?></p>
+															<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+															<div><span class="rate_a">RS <?php echo $row['Price'] ?></span></div>
+															<button>Buy</button>
+															<span class="discount_a">92%OFF</span>
+														</div>
+													</a>
+												</div>
 											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/two.jpeg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/three.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/four.jpeg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/five.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/six.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/seven.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
+										<?php
+									}
+								?>		
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
-			<div class="three-left_a">
-					<h2>TOP CATEGORIES</h2>
+			<nav class="collapse navbar-collapse" id="collapsibleNavbar">
+				<div class="three-left_a">
 					<ul class="list-group">
+					<span class="list-group-item borderless">TOP CATEGORIES</span>
 						<li class="list-group-item borderless">
 							<a href="#">
 								<span class="three-icon_a">
@@ -255,7 +171,7 @@
 					</ul>
 					<div class="three-two-ul_a">
 						<ul class="list-group">
-						<h2 class="more-cate_a">MORE CATEGORIES</h2>
+						<span class="list-group-item borderless">MORE CATEGORIES</span>
 							<li class="list-group-item borderless">
 								<a href="#">
 									<span class="three-icon-li_a">Men's Fashion</span>
@@ -305,7 +221,7 @@
 					</div>
 					<div class="three-three-ul_a">
 						<ul class="list-group">
-						<h2>TRENDING SEARCHES</h2>
+						<span class="list-group-item borderless">TRENDING SEARCHES</span>						
 							<li class="list-group-item borderless">
 								<a href="#">
 									<span class="three-icon-li search-li_a"><i class="fas fa-search"></i></span>
@@ -339,6 +255,11 @@
 						</ul>
 					</div>
 				</div>
+			</nav>	
+		</div>
+		<div class="main-div-three-products_a ">
+		<div class="row">		
+			<div class=" col-md-12">	
 				<div class="scan-main_a">
 					<div class="scan_a scan-img_a">
 						<img src="asset/code.png" />
@@ -348,8 +269,13 @@
 						<h3>Scan to download app</h3>
 					</div>
 				</div>
+			</div>
 		</div>
+		</div>		
 	</div>
+</section>
+
+<section>
 </section>
 
 <!---section-four--->

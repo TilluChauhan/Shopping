@@ -92,17 +92,17 @@
 					<td>
                       <div class="avatar-group">
                         <a href="#" class="avatar avatar-sm rounded-circle">
-                          <img alt="" src="<?php echo 'images/upload_a/'.$catch['Front_image'];?>" />
+                          <img alt="" style=" height:40px;" src="<?php echo 'images/upload_a/'.$catch['Front_image'];?>" />
                         </a>
                         <a href="#" class="avatar avatar-sm rounded-circle">
-                          <img alt="" src="<?php echo 'images/upload_b/'.$catch['Side_image'];?>">
+                          <img alt="" style=" height:40px;" src="<?php echo 'images/upload_b/'.$catch['Side_image'];?>">
                         </a>
                         <a href="#" class="avatar avatar-sm rounded-circle">
-                          <img alt="" src="<?php echo 'images/upload_c/'.$catch['Back_image'];?>">
+                          <img alt="" style=" height:40px;" src="<?php echo 'images/upload_c/'.$catch['Back_image'];?>">
                         </a>
                       </div>
                     </td>
-					<td><?php echo $catch['Description']; ?></td>
+					<td style="width: 150px;"><?php echo $catch['Description']; ?></td>
 					<td><?php echo $catch['Status'];?></td>
 					<td><?php echo $catch['CreatedDate'];?></td>
 					<td><a href="add.php?edit=<?php echo $catch['Product_ID']; ?>" class="btn btn-sm btn-primary">Edit</a></td>
