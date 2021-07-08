@@ -77,7 +77,7 @@
 						  <h3 class="mb-0">ADD Product</h3>
 						</div>
 						<div class="col-4 text-right">
-						  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+						  <a href="category.php" class="btn btn-sm btn-primary">Add category</a>
 						</div>
 					  </div>
 					</div>
@@ -85,9 +85,23 @@
 					  <div>
 						<h6 class="heading-small text-muted mb-4">User information</h6>
 						<div class="pl-lg-4">
-						  <div class="row">
-							
-							
+						  <div class="row">							
+							<div class="col-lg-6">
+								<label class="form-control-label" for="input-username">Select Category</label>								
+							  <div class="form-group">
+								<select id="slct_ctery">
+									<?Php
+										while($row = mysqli_fetch_array($resultval)){
+										?>
+											<option value="<?php echo $row ['P_CatId']; ?>"><?php echo $row['Name']?></option>	
+										<?php	
+										}
+									?>								
+								</select>							  
+							  </div>
+							</div>
+						  </div>
+						  <div class="row">														
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-username">Product Name</label>
@@ -190,6 +204,7 @@
 	<script>
 		$(document).ready(function(){
 			$("#submit").click(function(){
+				var select = $("#slct_ctery").val();	
 				var name = $("#productname").val();	
 				var price = $("#price").val();	
 				var sqa = $("#sqanumber").val();	
@@ -199,11 +214,13 @@
 				var a_image = $("#x_image")[0].files[0];	
 				var b_image = $("#y_image")[0].files[0];	
 				var c_image = $("#z_image")[0].files[0];
-				var description = $("#description").val();	
+				var description = $("#description").val();
+				var slct_ctery = $("#slct_ctery").val();
 				
 			
 				var store = new FormData();
 				store.append('P_name', name);	
+				store.append('P_category', select);	
 				store.append('P_price', price);	
 				store.append('P_sqa', sqa);	
 				store.append('P_quantity', quantity);	
@@ -213,7 +230,8 @@
 				store.append('f_image', b_image);	
 				store.append('g_image', c_image);	
 				store.append('p_description', description);
-			
+				store.append('p_ctery', slct_ctery); 
+				
 				$.ajax({
 					url: 'service/product_add.php',
 					type: 'POST',

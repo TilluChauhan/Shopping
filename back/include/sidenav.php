@@ -39,7 +39,7 @@
             <li class="nav-item">
               <a class="nav-link active" href="#">
                 <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">Tables</span>
+                <span class="nav-link-text"></span>
               </a>
             </li>
             <li class="nav-item">

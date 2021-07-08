@@ -10,7 +10,7 @@ body{padding:0; margin:0; font-family:arial;background-color:#f7f7f7}
 .top-header-icon_a{padding-right:4px}
 
 /*--section-two---*/
-.section-two_a{background-color:#e40046;}
+.section-two_a{background-color:#e40046; position:relative;}
 .section-two_a nav{padding:0} 
 .section-two_a div nav a i{margin-right:22px;}
 .header-search_a input{height:37px;
@@ -46,10 +46,9 @@ body{padding:0; margin:0; font-family:arial;background-color:#f7f7f7}
  /*---section-left-three---*/
 .three-left_a{position: absolute;
     border-radius: 3px;
-    box-shadow: 0px 0px 9px 2px #bdb9b9;
     width: 25%;
     overflow: auto;
-	top:0;
+	top:66px;
     z-index: 99;
 	}
 	
@@ -94,7 +93,7 @@ body{padding:0; margin:0; font-family:arial;background-color:#f7f7f7}
 .scan-text_a h3{font-size:12px; color:#7d7c7c; margin:0;}
 
   /*---section-three-right---*/
-.three-right-section_a{ margin-top:18px; position:relative;}
+.three-right-section_a{ margin-top:18px;}
 .three-big-slider_a div div img{width:100%; height:275px;  border-radius:3px} 
 .three-pro-one-image_a{height:232px; width:100%}
 .three-pro-one-image_a img{width:100%; height:100%}
@@ -530,3 +529,9 @@ background-repeat:no-repeat;}
 
 .login-right-div-text_l h2 i{padding-left:18px;}
 	
+	
+/*---- DEFINE.PHP----*/
+
+.top-nav{
+	display:inline-block;
+}
