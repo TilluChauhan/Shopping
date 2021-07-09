@@ -1,3 +1,12 @@
+<?php
+	$sql ="select * from Product_Category";
+	$solution = mysqli_query($conn, $sql);
+	
+	
+?>
+
+
+
 <section class="section-one_a">
 	<div class="my-container_a">
 		<div class="row">
@@ -61,7 +70,7 @@
 									<span class="three-icon_a">
 										<img src="asset/three-two.png" />
 									</span>
-									<span class="three-icon-li_a">Mobile & Tablets</span>
+									<span class="three-icon-li_a">Mobile</span>
 								</a>
 							</li>
 							<li class="list-group-item">
@@ -92,52 +101,21 @@
 						</ul>
 						<div class="three-two-ul_a">
 							<ul class="list-group">
-							<span class="list-group-item borderless">MORE CATEGORIES</span>
+								<span class="list-group-item borderless">MORE CATEGORIES</span>
+								
+								<?php
+									while($row = mysqli_fetch_array($solution)){
+										?>								
 								<li class="list-group-item borderless">
-									<a href="#">
-										<span class="three-icon-li_a">Men's Fashion</span>
+									<a href="products.php?xt=<?php echo $row['P_CatId']; ?>">
+										<span class="three-icon-li_a"><?php echo $row['Name'];?></span>
 									</a>
 								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Women's Fashion</span>
-									</a>
-								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Toys,Kids Fashion& more</span>
-									</a>
-								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Beauty,Health& Daily Needs</span>
-									</a>
-								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Sports,Fitness& Outdoor</span>
-									</a>
-								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Car & Motorbike</span>
-									</a>
-								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Hobbies</span>
-									</a>
-								</li>
-								<li class="list-group-item">
-									<a href="#">
-										<span class="three-icon-li_a">Books,Media& Music</span>
-									</a>
-								</li>
-								<li class="list-group-item see-all-categories_a">
-									<a href="#">
-										<span class="three-icon-li_a">See All Categories</span>
-									</a>
-								</li>
+										<?php
+									}
+								?>
+							
+							
 							</ul>
 						</div>
 						<div class="three-three-ul_a">

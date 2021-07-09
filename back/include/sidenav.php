@@ -37,9 +37,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link active" href="category-list.php">
                 <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text"></span>
+                <span class="nav-link-text">Category</span>
               </a>
             </li>
             <li class="nav-item">

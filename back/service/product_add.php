@@ -33,7 +33,7 @@
 	$date = date('yy-m-d');
 
 	
-	$sql = " insert into product_list (Product_ID, Ctery_Id, Name, Price, SQA_Number, Quantity, Size, Color, Front_image, Side_image, Back_image, Description, Status, CreatedDate) values ('', '".$name."', '".$select."', '".$price."', '".$sqa."', '".$quantity."', '".$size."', '".$color."', '".$x_image."', '".$y_image."', '".$z_image."', '".$dect."', '".$status."', '".$date."' )";			
+	$sql = " insert into product_list (Product_ID, Ctery_Id, Name, Price, SQA_Number, Quantity, Size, Color, Front_image, Side_image, Back_image, Description, Status, CreatedDate) values ('', '".$select."', '".$name."',  '".$price."', '".$sqa."', '".$quantity."', '".$size."', '".$color."', '".$x_image."', '".$y_image."', '".$z_image."', '".$dect."', '".$status."', '".$date."' )";			
 	$result = mysqli_query($conn, $sql);
 		if($result){
 			echo 1;

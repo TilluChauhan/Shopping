@@ -85,7 +85,7 @@
 					  <div>
 						<h6 class="heading-small text-muted mb-4">User information</h6>
 						<div class="pl-lg-4">
-						  <div class="row">							
+						  <div class="row">			
 							<div class="col-lg-6">
 								<label class="form-control-label" for="input-username">Select Category</label>								
 							  <div class="form-group">

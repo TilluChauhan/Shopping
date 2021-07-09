@@ -5,6 +5,18 @@
 	if(!isset ($_SESSION['user'])){
 		header('Location: login.php');
 	}
+	
+	$AddMode = true;
+	$editId = null;
+	$catch = null;
+	if(isset($_GET['edit'])){
+		$editId = $_GET['edit'];	
+		$AddMode = false;
+		$pgs = "select * from Product_Category where P_CatId = '".$editId."'";
+		$result = mysqli_query($conn, $pgs);
+		$catch = mysqli_fetch_array($result);
+		
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,20 +79,22 @@
 							<div class="col-lg-6">
 							  <div class="form-group">
 								<label class="form-control-label" for="input-username">Category Name</label>
-								<input type="text" id="catname"  class="form-control" placeholder="Product Name">
+								<input type="text" id="catname" value="<?php echo $catch ? $catch['Name'] : '' ?>" class="form-control" placeholder="Product Name">
 							  </div>
 							</div>
 						  </div>
 							<div class="col-lg-12 col-5 ">
-									
-
-									<button class="btn btn-sm btn-primary" id="catcreat">Creat</button>									
-								
-
-									<button class="btn btn-sm btn-primary" id="update">Update</button>									
-							  
-							  
-							  
+								<?php
+									if($AddMode){
+									?>
+										<button class="btn btn-sm btn-primary" id="catcreat">Creat</button>																		
+									<?php		
+									}else{
+										?>
+										<button class="btn btn-sm btn-primary" id="update">Update</button>									
+										<?php
+									}
+								?>	
 							</div>
 						</div>	
 					  </div>
@@ -99,9 +113,7 @@
 		$(document).ready(function(){
 			$("#catcreat").click(function(){
 				var name = $("#catname").val();
-				var money = $("#catprice").val();
-	
-				
+					
 				var store = new FormData();
 				store.append('C_name', name);	
 				
@@ -119,6 +131,34 @@
 							}
 					}		
 				})
+			});
+		});
+		
+		
+		$(document).ready(function(){
+			$("#update").click(function(){
+				var name = $("#catname").val(); 
+				var id = '<?php echo $editId?>';
+
+				var data = new FormData();
+				data.append('UP_name', name);
+				data.append('UP_ID', id);	
+
+				
+				$.ajax({
+					url: 'service/updatae-category.php',
+					type: 'POST',
+					data: data,
+					contentType: false,
+					processData: false,	
+					success: function(response){
+						if(response == 1){
+						//	window.location.reload();	
+							}else{
+						
+							}
+					}		
+				})	
 			});
 		});
 	</script>

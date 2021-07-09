@@ -48,9 +48,9 @@ body{padding:0; margin:0; font-family:arial;background-color:#f7f7f7}
     border-radius: 3px;
     width: 25%;
     overflow: auto;
-	top:66px;
     z-index: 99;
 	}
+.list-group li a{cursor:pointer;}
 	
 .three-left_a h2{font-size:12px; color:#333333; padding-top:15px; padding-left:20px}
 .three-icon_a{height:0px; width:30px; display:inline-block;}
@@ -64,12 +64,13 @@ body{padding:0; margin:0; font-family:arial;background-color:#f7f7f7}
 	border-bottom:1px solid #fff;
 	border-left:3px solid #fff;
 	text-decoration:none;
-	cursor:default;margin-left:5px
+	margin-left:5px
 	}
 .three-left_a ul li:hover a{border-left:3px solid #d21212;
 	border-top:1px solid #e6e3e3;
 	border-bottom:1px solid #e6e3e3;
 	}
+
 
 	
 .three-two-ul_a ul li a{padding:3px 10px}
