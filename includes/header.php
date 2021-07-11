@@ -1,7 +1,7 @@
 <?php
-	$sql ="select * from Product_Category";
+
+	$sql ="select * from Product_Category";	
 	$solution = mysqli_query($conn, $sql);
-	
 	
 ?>
 

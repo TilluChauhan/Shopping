@@ -31,9 +31,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">
+              <a class="nav-link" href="#">
                 <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">Profile</span>
+                <span class="nav-link-text">Order</span>
               </a>
             </li>
             <li class="nav-item">
