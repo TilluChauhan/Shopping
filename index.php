@@ -1,9 +1,6 @@
 <?php 
 	include 'config/config.php';
-	session_start();
-	if(!isset($_SESSION['type'])){
-		header("Location:login.php");
-	}
+
 	
 	$sqlproadd = 'select * from  proadd' ;
 	$queryproadd = mysqli_query($conn,$sqlproadd);
