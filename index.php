@@ -1,25 +1,17 @@
 <?php 
-	include 'back/config/config.php';
-	$sql = "select * from product_list where P_CatId = 1";
-	$result = mysqli_query($conn, $sql);
-
+	include 'config/config.php';
+	session_start();
+	if(!isset($_SESSION['type'])){
+		header("Location:login.php");
+	}
+	
+	$sqlproadd = 'select * from  proadd' ;
+	$queryproadd = mysqli_query($conn,$sqlproadd);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>camera</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/all.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/style.css">
-</head>
+
+<?php include 'includes/css.php' ?>
 <body>
 <!---section-one--->
 <section class="section-one_a">
@@ -48,7 +40,6 @@
 		<nav class="navbar navbar-expand-sm  navbar-dark">
 		<div class="navbar-brand" href="index.php">
 			<a href="index.php"><img src="asset/snapfull.png" alt="Logo" style="width:100%; max-width:168px;"></a>
-			<i class="fas fa-bars"></i>
 		</div>
 		<form class="form-inline" action="/action_page.php" style="flex:1">
 			<div class="header-search_a">
@@ -62,7 +53,7 @@
 					<a class="nav-link cart_a" href="#"><span>Cart</span><i class="fas fa-shopping-cart"></i></a>
 				</li>
 				<li class="nav-item sign-in_a">
-					<a class="nav-link" href="#"><span>Sign In</span><i class="fas fa-user"></i></a>
+					<a class="nav-link" href="logout.php"><span>Sign In</span><i class="fas fa-user"></i></a>
 				</li>
 			</ul>
 		</div>
@@ -89,32 +80,125 @@
 						<h2>RECENTLY VIEWED PRODUCTS</h2>
 					<div class="main-div-three-products_a">
 						<div class="owl-carousel owl-theme" id="slider2">
-								<?php
-									while($row = mysqli_fetch_array($result)){
-										?>
-											<div class="item">
-												<div class="three-slidproducts_a">
-													<a href="#">
-														<div class="three-pro-one-image_a">
-															<img src="back/images/upload_a/<?php echo $row['Front_image'] ?>" />
-															<i class="far fa-heart heart_a"></i>
-														</div>
-														<div class="three-pro-one-text_a">
-															<p><?php echo $row['Name'] ?></p>
-															<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-															<div><span class="rate_a">RS <?php echo $row['Price'] ?></span></div>
-															<button>Buy</button>
-															<span class="discount_a">92%OFF</span>
-														</div>
-													</a>
-												</div>
+						<?php
+						while($row = mysqli_fetch_array($queryproadd)){
+						?>
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="define.php?prolisid=<?php echo $row['proadd_id'] ?> ">
+											<div class="three-pro-one-image_a">
+												<img  src="<?php echo 'admin/asset/profront/'.$row['proadd_front_img']; ?>" style="width:100%; height:100%;">
+												<i class="far fa-heart heart_a"></i>
 											</div>
-										<?php
+											<div class="three-pro-one-text_a">
+												<p><?php echo $row['proadd_name'] ?></p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a"><?php echo $row['proadd_price'] ?></span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							  	<?php
 									}
 								?>
-								
-								
-								
+              
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="#">
+											<div class="three-pro-one-image_a">
+												<img src="asset/two.jpeg" />
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="#">
+											<div class="three-pro-one-image_a">
+												<img src="asset/three.jpg" />
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="#">
+											<div class="three-pro-one-image_a">
+												<img src="asset/four.jpeg" />
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="#">
+											<div class="three-pro-one-image_a">
+												<img src="asset/five.jpg" />
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="#">
+											<div class="three-pro-one-image_a">
+												<img src="asset/six.jpg" />
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="#">
+											<div class="three-pro-one-image_a">
+												<img src="asset/seven.jpg" />
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -468,11 +552,8 @@
 </section>
 <?php include 'includes/fotter.php'; ?>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+
+<?php include 'includes/js.php'; ?>
 <script>
 	$(document).ready(function(){
 		$('#slider1').owlCarousel({

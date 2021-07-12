@@ -1,5 +1,5 @@
 <?php	
-$database = 'project';
+$database = 'first_admin';
 $pass = '';
 $user = 'root';
 $servername = 'localhost';

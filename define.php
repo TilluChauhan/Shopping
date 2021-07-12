@@ -1,68 +1,24 @@
+<?php 
+include 'config/config.php';
+if(!isset($_GET['prolisid']) || $_GET['prolisid'] == null){
+	$sqlprodlis = 'select * from proadd';
+}
+else{
+	$proaddlisid = $_GET['prolisid'];
+	$sqlprodlis = 'select * from proadd where proadd_id="'.$proaddlisid.'"';
+}
+$queryprodlis = mysqli_query($conn, $sqlprodlis);
+$rowprodlis = mysqli_fetch_array($queryprodlis);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>camera</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/all.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/style.css">
-</head>
+
+<?php include 'includes/css.php' ?>
 <body>
-<!---section-one--->
-<section class="section-one_a">
-	<div class="my-container_a">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="top-header_a">India's Fastest Online Shopping Destination</div>
-			</div>
-			<div class="col-md-6">
-				<div class="top-header_a">
-					<ul>
-						<li><a href="#">Gift Cards</a></li>
-						<li><a href="#">Help Center</a></li>
-						<li><a href="#">Sell On Snapdeal</a></li>
-						<li><a href="#"><span class="top-header-icon_a"><i class="fas fa-file-download"></i></span>Download App</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<!---section-two--->
-<section class="section-two_a">
-	<div class="my-container_a">
-		<nav class="navbar navbar-expand-sm  navbar-dark">
-		<div class="navbar-brand" href="index.php">
-			<a href="index.php"><img src="asset/snapfull.png" alt="Logo" style="width:100%; max-width:168px;"></a>
-			<i class="fas fa-bars"></i>
-		</div>
-		<form class="form-inline" action="/action_page.php" style="flex:1">
-			<div class="header-search_a">
-				<input class="form-control mr-sm-2" type="text" placeholder="Search products & brands">
-				<button><i class="fas fa-search"></i>Search</button>
-			</div>
-		</form>
-		<div class="header-ul_a">
-			<ul class="nav justify-content-end ">
-				<li class="nav-item">
-					<a class="nav-link cart_a" href="#"><span>Cart</span><i class="fas fa-shopping-cart"></i></a>
-				</li>
-				<li class="nav-item sign-in_a">
-					<a class="nav-link" href="#"><span>Sign In</span><i class="fas fa-user"></i></a>
-				</li>
-			</ul>
-		</div>
-		</nav>
-	</div>
-</section>
-
+<?php include 'includes/full-header.php' ?>
+`
 <!---section-three--->
 <section class="section-three_d">
 	<div class="my-container_a">
@@ -85,19 +41,106 @@
 						<a class="nav-link" href="#">Graters</a>
 					</li>
 					<span>/</span>
-					<span>Mini Juicer Machine.Juice Maker Machine for Home.Deluxe Fruit & Vegetable Manual Juicer with with Steel Handel</span>
+					<span class="last-span_nav"><?php echo $rowprodlis['proadd_name'] ?></span>
 				</ul>
 			</nav>
 		</div>
 	</div>
 </section>
 
+<!---section-four--->
+<section class="sectioin-four_d">
+	<div class="my-container_a">
+		<div class="row">
+			<div class="col-md-5 bg-white" >
+				<div class="image-zoom_d">
+				<div id="jquery-script-menu">
+				<div class="jquery-script-center">
+				<div class="jquery-script-clear"></div>
+				</div>
+				</div>
+				  <div class="container">
+				  <div class="show" href="admin/asset/profront/<?php echo $rowprodlis['proadd_front_img'] ?>"">
+					<img src="admin/asset/profront/<?php echo $rowprodlis['proadd_front_img'] ?>" id="show-img">
+				  </div>
+				  <div class="small-img">
+					<img src="asset/online_icon_right@2x.png" class="icon-left" alt="" id="prev-img">
+					<div class="small-container">
+					  <div id="small-img-roll">
+						<img src="admin/asset/profront/<?php echo $rowprodlis['proadd_front_img'] ?>" class="show-small-img" alt="">
+						<img src="admin/asset/proside/<?php echo $rowprodlis['proadd_side_img'] ?>" class="show-small-img" alt="">
+						<img src="admin/asset/proback/<?php echo $rowprodlis['proadd_back_img'] ?>" class="show-small-img" alt="">
+					  </div>
+					</div>
+					<img src="asset/online_icon_right@2x.png" class="icon-right" alt="" id="next-img">
+				  </div>
+				</div>
+				  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+				  <script src="js/zoom-image.js"></script>
+				  <script src="js/main.js"></script>
+				  </div>
+			</div>
+			<div class="col-md-7 bg-white" style="padding:28px">
+				<div class="image-info-main-div">
+					<h1><?php echo $rowprodlis['proadd_name'] ?></h1>
+					<div class="info-nav">
+						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+						<nav class="navbar navbar-expand-sm">
+							<ul class="navbar-nav">
+								<li class="nav-item">
+									<a class="nav-link" href="#">4235 Ratings</a>
+								</li>
+								
+								<li class="nav-item">
+									<a class="nav-link" href="#">80 Reviews</a>
+								</li>
+								
+								<li class="nav-item">
+									<a class="nav-link" href="#">7 Selfies</a>
+								</li>
+								
+								<li class="nav-item">
+									<a class="nav-link" href="#">Have a question?</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="amount_d">
+						<div class="mrp">MRP  <span class="rs_d">Rs.1,999 </span>  (inclusive of all taxes)</div>
+						<div class="price">Rs. <?php echo $rowprodlis['proadd_price'] ?><span class="discount_d">92%OFF</span></div>
+					</div>
+					<div class="csinfo">
+						<div class="color_d">Color<span><?php echo $rowprodlis['proadd_color'] ?></span></div>
+						<div class="size_d">Size<span><?php echo $rowprodlis['proadd_size'] ?></span></div>
+					</div>
+					<div class="desc_d"><span>Description  -</span><?php echo $rowprodlis['proadd_desc'] ?></div>
+					<div class="button_d">
+						<button class="cart_d">ADD TO CART</button>
+						<button class="buy_d">BUY NOW</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
 <?php include 'includes/fotter.php'; ?>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<?php include 'includes/js.php'; ?>
 </body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </html>
