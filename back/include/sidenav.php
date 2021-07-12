@@ -31,7 +31,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="order-list.php">
                 <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Order</span>
               </a>

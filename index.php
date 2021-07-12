@@ -48,7 +48,7 @@
 										?>
 											<div class="item">
 												<div class="three-slidproducts_a">
-													<a href="#">
+													<a href="define.php?id=<?php echo $row['Product_ID']?>">
 														<div class="three-pro-one-image_a">
 															<img src="back/images/upload_a/<?php echo $row['Front_image'] ?>" />
 															<i class="far fa-heart heart_a"></i>

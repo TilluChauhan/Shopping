@@ -73,7 +73,7 @@ $row = mysqli_fetch_array($query_prodlis);
 									<a class="nav-link" href="#">7 Selfies</a>
 								</li>
 								
-								<li class="nav-item">
+								<li class="nav-item">	
 									<a class="nav-link" href="#">Have a question?</a>
 								</li>
 							</ul>

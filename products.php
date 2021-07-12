@@ -1,12 +1,15 @@
 <?php
 	include 'back/config/config.php';
-			
-	if(isset($_GET['xt'])){
-	$editID = $_GET['xt'];
-	$pgs = "select * from Product_list where Ctery_id = '".$editID."' ";
-	$pass = mysqli_query($conn, $pgs);			
+		
 
+	if(!isset($_GET['listid']) || $_GET['listid'] == null){		
+		$sql = "select * from Product_list";
 	}
+	else{
+		$proadd = $_GET['listid'];
+		$sql = "select * from Product_list where Ctery_id = '".$proadd."' ";
+	}
+	$pass = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +40,7 @@
 						?>
 							<div class="col-md-3">
 								<div class="three-slidproducts_a bg-white">
-									<a href="define.php?id=<?php echo $row['Product_ID']?>">
+									<a href="define.php?id=<?php echo $catch['Product_ID']?>">
 										<div class="three-pro-one-image_a">
 											<img src="back/images/upload_a/<?php echo $catch['Front_image'] ?>" />
 											<i class="far fa-heart heart_a"></i>

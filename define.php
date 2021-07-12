@@ -1,15 +1,14 @@
 <?php 
-include 'back/config/config.php';
-
-
+	include 'back/config/config.php';
 
 	if(isset($_GET['id'])){
-	$editID = $_GET['id'];
-	$pgs = "select * from Product_list where Product_ID = '".$editID."' ";
-	$pass = mysqli_query($conn, $pgs);			
-	$row = mysqli_fetch_array($pass);
-}	
-	
+		$add = 	$_GET['id'];
+		$sql ="select * from Product_list where Product_ID = '".$add."' ";
+		$result = mysqli_query($conn, $sql);
+		$catch = mysqli_fetch_array($result);
+	}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +18,7 @@ include 'back/config/config.php';
 <body>
 
 <?php include 'includes/header.php' ?>
-`
+
 <!---section-three--->
 <section class="section-three_d">
 	<div class="my-container_a">
@@ -42,7 +41,7 @@ include 'back/config/config.php';
 						<a class="nav-link" href="#">Graters</a>
 					</li>
 					<span>/</span>
-					<span class="last-span_nav"><?php echo $row['Name'] ?></span>
+					<span class="last-span_nav"><?php $catch['Name']; ?></span>
 				</ul>
 			</nav>
 		</div>
@@ -57,7 +56,7 @@ include 'back/config/config.php';
 			</div>
 			<div class="col-md-7 bg-white" style="padding:28px">
 				<div class="image-info-main-div">
-					<h1><?php echo $row['Name'] ?></h1>
+					<h1><?php echo $catch['Name']; ?></h1>
 					<div class="info-nav">
 						<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
 						<nav class="navbar navbar-expand-sm">
@@ -82,23 +81,23 @@ include 'back/config/config.php';
 					</div>
 					<div class="amount_d">
 						<div class="mrp">MRP  <span class="rs_d">Rs.1,999 </span>  (inclusive of all taxes)</div>
-						<div class="price">Rs. <?php echo $row['price'] ?><span class="discount_d">92%OFF</span></div>
+						<div class="price">Rs : <?php echo $catch['Price']; ?>
+							<span class="discount_d">92%OFF</span></div>
 					</div>
 					<div class="csinfo">
-						<div class="color_d">Color<span><?php echo $row['Color'] ?></span></div>
-						<div class="size_d">Size<span><?php echo $row['Size'] ?></span></div>
+						<div class="color_d">Color : <span><?php echo $catch['Color']; ?></span></div>
+						<div class="size_d">Size : <span><?php echo $catch['Size']; ?></span></div>
 					</div>
-					<div class="desc_d"><span>Description  -</span><?php echo $row['Description'] ?></div>
+					<div class="desc_d"><span>Description : </span><?php echo $catch['Description']; ?></div>
 					<div class="button_d">
-						<button class="cart_d">ADD TO CART</button>
-						<button class="buy_d">BUY NOW</button>
+						<button class="btn btn-danger">ADD TO CART</button>
+						<button class=" def btn btn-danger">BUY NOW</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
 
 <?php include 'includes/fotter.php'; ?>
 

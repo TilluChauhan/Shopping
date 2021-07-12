@@ -107,7 +107,7 @@
 									while($row = mysqli_fetch_array($solution)){
 										?>								
 								<li class="list-group-item borderless">
-									<a href="products.php?xt=<?php echo $row['P_CatId']; ?>">
+									<a href="products.php?listid=<?php echo $row['P_CatId']; ?>">
 										<span class="three-icon-li_a"><?php echo $row['Name'];?></span>
 									</a>
 								</li>
