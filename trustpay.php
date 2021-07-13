@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>camera</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/all.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<!---section-one--->
 
-<!---section-two--->
-		<?php include 'includes/header.php';?>
+<?php include 'includes/css.php' ?>
+<body>
+
+<?php include 'includes/full-header.php' ?>
+
 <!---section-trustpay--->
 <section class="trustpay-section">
 	<section class="bg-image_tp">
@@ -257,7 +245,8 @@
 	</section>
 </section>
 <?php include 'includes/fotter.php'; ?>
-	
-	<?php include 'includes/script.php';?>
+
+
+<?php include 'includes/js.php'; ?>
 </body>
 </html>

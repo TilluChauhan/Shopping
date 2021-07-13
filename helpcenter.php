@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>camera</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/all.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/style.css">
-</head>
+<?php include 'includes/css.php' ?>
 <body>
  <!---section-one-help-center--->
 <section class="section-one_hp">
@@ -24,13 +12,36 @@
 				</div>
 				<div class="header-ul_hp">
 					<ul class="nav justify-content-end ">
-						<li class="nav-item">
-							<a class="nav-link cart_hp" href="#"><span>Cart</span><i class="fas fa-shopping-cart"></i></a>
-						</li>
-						<li class="nav-item sign-in_a">
-							<a class="nav-link" href="#"><span>Sign In</span><i class="fas fa-user"></i></a>
-						</li>
-					</ul>
+				<li class="nav-item">
+					<a class="nav-link cart_a" href="#"><span>Cart</span><i class="fas fa-shopping-cart"></i></a>
+				</li>
+				<li class="nav-item sign-in_a" id="dropdown">
+					<a class="nav-link" href="#" id="clickcolor"><span>Sign In</span><i class="fas fa-user signup"></i></a>
+					  <div id="dropdown-menu" class="adc">
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-user"></i>
+							  <span>Your Account</span>
+							</a>
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-envelope"></i>
+							  <span>Your Orders</span>
+							</a>
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-heart"></i>
+							  <span>Shortlist</span>
+							</a>
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-hand-peace"></i>
+							  <span>SD Cash</span>
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="logout.php" class="dropdown-item">
+							  <i class="ni ni-user-run"></i>
+							  <span>Logout</span>
+							</a>
+					</div>
+				</li>
+			</ul>
 				</div>
 				</nav>
 			</div>
@@ -102,10 +113,6 @@
 	</div>
 </section>
 <?php include 'includes/fotter.php'; ?>
-<script src="js/jquery.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<?php include 'includes/js.php'; ?>
 </body>
 </html>

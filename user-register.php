@@ -1,6 +1,3 @@
-<?php 
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,16 +58,23 @@ session_start();
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="login-right-div_l">
+					<div class="login-right-div_l register-right-div">
 						<div class="login-right-div-text_l">
 							<h2>Login/Sign Up On Snapdeal<i class="fas fa-times"></i></h2>
-							<p>Please provide your Mobile Number or Email to Login/ Sign In on Snapdeal</p>
-							<input type="text" placeholder="Email"  id="email" />
+							<p>Please provide your Mobile Number or Email to Register/ Sign Up on Snapdeal</p>
+							<div id="error"></div>
+							<input type="text" placeholder="Name" id="name" />
+							<input type="text" placeholder="Mobile Number" id="mobile" />
+							<input type="text" placeholder="Email"  id="email"/>
 							<input type="password" placeholder="Password" id="pass" />
-							<button id="login">CONTINUE</button>
-							<h3>or Login Using</h3>
-							<a class="fb_l" href="user-register.php">Register</a>
-							<a class="goog_l">Google</a>
+							<select id="type">
+								<option>Type</option>
+								<option>user</option>
+								<option>admin</option>
+							</select>
+							<input type="file"  id="profilepic"/>
+							<button id="register">CONTINUE</button>
+							<a class="fb_l" href="login.php">Login</a>
 						</div>
 					</div>
 				</div>
@@ -95,26 +99,66 @@ session_start();
 <script src="js/bootstrap.min.js"></script> 
 <script>
 	$(document).ready(function(){
-		$("#login").click(function(){
+		$("#name").change(function(){
+			$("#error").html('');
+		});
+		$("#email").change(function(){
+			$("#error").html('');
+		});
+		$("#pass").change(function(){
+			$("#error").html('');
+		});
+		
+		$("#register").click(function(){
+			var name = $("#name").val();
+			var mobile = $("#mobile").val();
 			var email = $("#email").val();
 			var pass = $("#pass").val();
+			var type = $("#type").val();
+			var profilepic = $('#profilepic')[0].files[0];
 			
-			$.ajax({
-				url: 'ajax/login.php',
-				type: 'POST',
-				data: {f_email: email, f_pass: pass},
-				success: function(resp){
-					console.log(resp);
-					if(resp == 1){
-							window.location.href = "index.php";
-						} else{
-						window.location.href = 'login.php';
+			
+			
+			
+			var fData = new FormData();
+			fData.append('file', profilepic);
+			fData.append('u_name', name);
+			fData.append('u_mobile', mobile);
+			fData.append('u_email', email);
+			fData.append('u_pass', pass);
+			fData.append('u_type', type);
+			
 						
+			if(name == ""){
+				$("#error").html("Please Enter Your Name");
+				return false;
+			}
+			else if(email == ""){
+				$("#error").html("Please Enter Your Email");
+				return false;
+			}
+			else if(pass == ""){
+				$("#error").html("Please Enter Your Passowrd");
+				return false;
+			}
+			else{
+			}
+			$.ajax({
+					type: "POST",
+					url: 'ajax/register.php',
+					data: fData,
+					processData: false,
+					contentType: false,
+					success: function(response)
+					{
+						console.log(response);
+						if(response == 1){
+							location.reload();
+						}
 					}
-				}
-			})
+			   });
 		});
-	})
+	});
 </script>
 </body>
 </html>

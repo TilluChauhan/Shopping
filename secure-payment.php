@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>camera</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php include 'includes/links.php';?> 
-</head>
+
+<?php include 'includes/css.php' ?>
 <body>
-<!---section-one--->
-	<?php include 'includes/header.php'; ?>
+
+<?php include 'includes/full-header.php' ?>
+
 <!---section-three--->
 <section class="section-three_sp">
 	<div class="maindiv_sp">
@@ -176,9 +173,12 @@
 		</div>
 	</div>
 </section>
-	<?php include 'includes/fotter.php'; ?>
+<?php include 'includes/fotter.php'; ?>
 
-	<?php include 'includes/script.php';?>
+<?php include 'includes/fotter.php'; ?>
+
+<?php include 'includes/js.php'; ?>
+
 </body>
 
 </html>
