@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2021 at 04:15 PM
+-- Generation Time: Jul 13, 2021 at 05:06 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -57,7 +57,64 @@ INSERT INTO `proadd` (`proadd_id`, `proadd_name`, `pro_cate_id`, `proadd_quantit
 (15, 'AUSK 100 Percent Cotton Multi Color Block T-Shirt', 3, '4', 'XL', 'Multi', 'DR45T56', '379', 'The product may vary from the images due to various reasons like monitor setting or photographic lighting.', 'pro front4214.jpeg', 'pro side8662.jpeg', 'pro back4840.jpeg', 1, '2121-07-13 00:00:00'),
 (16, 'GESPO 100 Percent Cotton Mustard Color Block T-Shirt', 3, '2', 'L', 'Mustard', 'AW32DE', '399', 'Trustpay: 100% Payment Protection. Return or Replacement is applicable for 7 days after delivery', 'pro front6045.jpeg', 'pro side7554.jpeg', 'pro back4881.jpeg', 1, '2121-07-13 00:00:00'),
 (19, 'GENEALO Crepe Green A- line Dress', 4, '1', 'M', 'White', 'SE32FR', '599', 'GENEALO Present This Trendy Sensational Women Dresses ,solid A-line dress With shrug has shoulder straps.', 'pro front2171.jpeg', 'pro side5722.', 'pro back9682.', 1, '2121-07-13 00:00:00'),
-(20, 'DODO & MOA Polyester Black Bodycon Dress', 4, '3', 'M', 'Black', 'PY5DG8', '499', 'GENEALO Present This Trendy Sensational Women Dresses ,solid A-line dress With shrug has shoulder straps.', 'pro front6973.jpeg', 'pro side3989.jpeg', 'pro back1560.jpeg', 1, '2121-07-13 00:00:00');
+(20, 'DODO & MOA Polyester Black Bodycon Dress', 4, '3', 'M', 'Black', 'PY5DG8', '499', 'GENEALO Present This Trendy Sensational Women Dresses ,solid A-line dress With shrug has shoulder straps.', 'pro front6973.jpeg', 'pro side3989.jpeg', 'pro back1560.jpeg', 1, '2121-07-13 00:00:00'),
+(21, 't-Shirt', 3, '3', 'M', 'Black', 'AS43Dd', '400', '', 'pro front8063.jpeg', 'pro side1783.jpeg', 'pro back3968.jpeg', 1, '2121-07-13 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pro_category`
+--
+
+CREATE TABLE `pro_category` (
+  `pro_cate_id` int(11) NOT NULL,
+  `pro_cate_name` varchar(200) NOT NULL,
+  `status` bigint(1) NOT NULL,
+  `created_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pro_category`
+--
+
+INSERT INTO `pro_category` (`pro_cate_id`, `pro_cate_name`, `status`, `created_date`) VALUES
+(1, 'mobile', 1, '2121-07-09 00:00:00'),
+(2, 'Electronic', 1, '2121-07-09 00:00:00'),
+(3, 'mens', 1, '2121-07-13 00:00:00'),
+(4, 'womens', 1, '2121-07-13 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_password` varchar(100) NOT NULL,
+  `user_mobile` bigint(20) NOT NULL,
+  `user_pic` varchar(500) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `created_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_name`, `type`, `user_email`, `user_password`, `user_mobile`, `user_pic`, `status`, `created_date`) VALUES
+(8, 'ayushi tyagi', 'admin', 'ayushityagi@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 7217826732, 'pro1909.jpeg', 1, '2021-06-29 00:00:00'),
+(9, 'ayushi', 'admin', 'ayushi@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 8802267324, 'pro6591.jpeg', 1, '2121-06-29 00:00:00'),
+(10, 'gopu', 'admin', 'gopu@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 7298326722, 'pro5361.jpeg', 1, '2121-06-29 00:00:00'),
+(11, 'goputyagi', 'admin', 'goputyagi@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 9953328764, 'pro8687.jpeg', 1, '2121-06-29 00:00:00'),
+(12, 'damru', 'user', 'damru@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 8802287320, 'pro3670.jpeg', 1, '2121-06-30 00:00:00'),
+(14, 'Golu', 'user', 'golu@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 9983328765, 'pro9160.jpeg', 1, '2121-06-30 00:00:00'),
+(15, 'poga', 'user', 'pogo@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 9868543254, 'pro5705.jpeg', 1, '2121-07-04 00:00:00'),
+(37, 'sana', 'admin', 'sana@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 7869874567, 'pro6322.jpeg', 1, '2121-07-13 00:00:00'),
+(38, 'tannu', 'admin', 'tannu@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 9867875764, 'pro9179.jpeg', 1, '2121-07-13 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -70,6 +127,18 @@ ALTER TABLE `proadd`
   ADD PRIMARY KEY (`proadd_id`);
 
 --
+-- Indexes for table `pro_category`
+--
+ALTER TABLE `pro_category`
+  ADD PRIMARY KEY (`pro_cate_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -77,7 +146,19 @@ ALTER TABLE `proadd`
 -- AUTO_INCREMENT for table `proadd`
 --
 ALTER TABLE `proadd`
-  MODIFY `proadd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `proadd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `pro_category`
+--
+ALTER TABLE `pro_category`
+  MODIFY `pro_cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
