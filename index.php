@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	include 'config/config.php';
 	$sqlproadd = 'select * from  proadd' ;
 	$queryproadd = mysqli_query($conn,$sqlproadd);
@@ -52,7 +53,41 @@
 				<li class="nav-item">
 					<a class="nav-link cart_a" href="#"><span>Cart</span><i class="fas fa-shopping-cart"></i></a>
 				</li>
-				<li class="nav-item sign-in_a" id="dropdown">
+					<?php 
+							if(isset($_SESSION["user_id"])){
+								$username = $_SESSION["name"];
+								?>	
+						<li class="nav-item sign-in_a" id="dropdown">
+					<a class="nav-link" href="#" id="clickcolor"><span><?php echo $username; ?></span></a>
+					  <div id="dropdown-menu" class="adc">
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-user"></i>
+							  <span>Your Account</span>
+							</a>
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-envelope"></i>
+							  <span>Your Orders</span>
+							</a>
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-heart"></i>
+							  <span>Shortlist</span>
+							</a>
+							<a href="#!" class="dropdown-item">
+							  <i class="far fa-hand-peace"></i>
+							  <span>SD Cash</span>
+							</a>
+							<div class="dropdown-divider"></div>
+							<a href="logout.php" class="dropdown-item">
+							  <i class="ni ni-user-run"></i>
+							  <span href="logout.php">Logout</span>
+							</a>
+					</div>
+				</li>
+								
+								<?php
+							}else{
+								?>
+								<li class="nav-item sign-in_a" id="dropdown">
 					<a class="nav-link" href="#" id="clickcolor"><span>Sign In</span><i class="fas fa-user signup"></i></a>
 					  <div id="dropdown-menu" class="adc">
 							<a href="#!" class="dropdown-item">
@@ -73,10 +108,15 @@
 							</a>
 							<div class="dropdown-divider"></div>
 							<a href="login.php" class="dropdown-item">
+							  <i class="ni ni-user-run"></i>
+							  <span>Register</span>
 							  <span>Login</span>
 							</a>
 					</div>
 				</li>
+								<?php
+							}
+						?>
 			</ul>
 		</div>
 		</nav>
@@ -124,103 +164,6 @@
 							  	<?php
 									}
 								?>
-              
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/two.jpeg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/three.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/four.jpeg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/five.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/six.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="item">
-									<div class="three-slidproducts_a">
-										<a href="#">
-											<div class="three-pro-one-image_a">
-												<img src="asset/seven.jpg" />
-												<i class="far fa-heart heart_a"></i>
-											</div>
-											<div class="three-pro-one-text_a">
-												<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-												<span class="discount_a">92%OFF</span>
-											</div>
-										</a>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

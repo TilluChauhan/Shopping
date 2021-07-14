@@ -67,11 +67,6 @@
 							<input type="text" placeholder="Mobile Number" id="mobile" />
 							<input type="text" placeholder="Email"  id="email"/>
 							<input type="password" placeholder="Password" id="pass" />
-							<select id="type">
-								<option>Type</option>
-								<option>user</option>
-								<option>admin</option>
-							</select>
 							<input type="file"  id="profilepic"/>
 							<button id="register">CONTINUE</button>
 							<a class="fb_l" href="login.php">Login</a>
@@ -114,7 +109,6 @@
 			var mobile = $("#mobile").val();
 			var email = $("#email").val();
 			var pass = $("#pass").val();
-			var type = $("#type").val();
 			var profilepic = $('#profilepic')[0].files[0];
 			
 			
@@ -126,7 +120,6 @@
 			fData.append('u_mobile', mobile);
 			fData.append('u_email', email);
 			fData.append('u_pass', pass);
-			fData.append('u_type', type);
 			
 						
 			if(name == ""){

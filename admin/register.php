@@ -59,20 +59,20 @@
             </div>
             <div class="card-body">
               <div>
-                <h6 class="heading-small text-muted mb-4">Product Category information</h6>
+                <h6 class="heading-small text-muted mb-4">ADMIN USER INFORMATION</h6>
 				<div id="error"></div>
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">Product Name</label>
-                        <input type="text" id="name" value="<?php echo $rowreg ? $rowreg['user_name'] : '' ?>" class="form-control" placeholder="Product Name">
+                        <label class="form-control-label" for="input-username">Admin User Name</label>
+                        <input type="text" id="name" value="<?php echo $rowreg ? $rowreg['user_name'] : '' ?>" class="form-control" placeholder="Admnin User Name">
                       </div>
                     </div>
 					<div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Phone Number</label>
-                        <input type="number" id="mobile" value="<?php echo $rowreg ? $rowreg['user_mobile'] : '' ?>" class="form-control" placeholder="Product Name">
+                        <input type="number" id="mobile" value="<?php echo $rowreg ? $rowreg['user_mobile'] : '' ?>" class="form-control" placeholder="Phone Number">
                       </div>
                     </div>
                   </div>
@@ -80,13 +80,13 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Email</label>
-                        <input type="text" id="email" value="<?php echo $rowreg ? $rowreg['user_email'] : '' ?>" class="form-control" placeholder="Product Name">
+                        <input type="text" id="email" value="<?php echo $rowreg ? $rowreg['user_email'] : '' ?>" class="form-control" placeholder="Email">
                       </div>
                     </div>
 					<div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Password</label>
-                        <input type="text" id="pass" value="<?php echo $rowreg ? $rowreg['user_password'] : '' ?>" class="form-control" placeholder="Product Name">
+                        <input type="text" id="pass" value="<?php echo $rowreg ? $rowreg['user_password'] : '' ?>" class="form-control" placeholder="Password">
                       </div>
                     </div>
                   </div>
