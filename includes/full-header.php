@@ -3,9 +3,6 @@
 		$sql ="select * from pro_category";	
 	$solution = mysqli_query($conn, $sql);
 	session_start();
-	if(!isset($_SESSION['user_id'])){
-		header("Location:login.php");
-	}
 	
 ?>
 <section class="section-one_a">

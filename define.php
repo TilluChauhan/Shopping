@@ -10,6 +10,7 @@ else{
 $queryprodlis = mysqli_query($conn, $sqlprodlis);
 $rowprodlis = mysqli_fetch_array($queryprodlis);
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,13 @@ $rowprodlis = mysqli_fetch_array($queryprodlis);
 <body>
 
 <?php include 'includes/full-header.php' ?>
-`
+
+<?php 
+if(isset($_SESSION['user_id'])){
+	$userId = $_SESSION['user_id'];
+}
+?>
+
 <!---section-three--->
 <section class="section-three_d">
 	<div class="my-container_a">
