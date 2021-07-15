@@ -106,7 +106,8 @@ session_start();
 				success: function(resp){
 					console.log(resp);
 					if(resp == 1){
-							window.location.href = "index.php";
+							//window.location.href = "index.php";
+							window.history.go(-1);
 						} else{
 						window.location.href = 'login.php';
 						

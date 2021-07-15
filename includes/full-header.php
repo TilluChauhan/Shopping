@@ -3,7 +3,7 @@
 		$sql ="select * from pro_category";	
 	$solution = mysqli_query($conn, $sql);
 	session_start();
-	
+
 ?>
 <section class="section-one_a">
 	<div class="my-container_a">
