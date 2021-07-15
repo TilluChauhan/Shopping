@@ -60,9 +60,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/upgrade.html">
+              <a class="nav-link" href="slider.php">
                 <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Upgrade</span>
+                <span class="nav-link-text">Slide</span>
               </a>
             </li>
           </ul>

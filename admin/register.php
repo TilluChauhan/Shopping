@@ -29,7 +29,7 @@
 <body>
   <!-- Sidenav -->
   <?php 
-	include "includes/aaside.php"
+	include "includes/aaside.php";
   ?>
   <!-- Main content -->
   <div class="main-content" id="panel">
