@@ -10,6 +10,8 @@ else{
 $queryprodlis = mysqli_query($conn, $sqlprodlis);
 $rowprodlis = mysqli_fetch_array($queryprodlis);
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +20,14 @@ $rowprodlis = mysqli_fetch_array($queryprodlis);
 <body>
 
 <?php include 'includes/full-header.php' ?>
-`
+
+<?php 
+$userId = null;
+if(isset($_SESSION['user_id'])){
+	$userId = $_SESSION['user_id'];
+}
+?>
+
 <!---section-three--->
 <section class="section-three_d">
 	<div class="my-container_a">
@@ -113,10 +122,23 @@ $rowprodlis = mysqli_fetch_array($queryprodlis);
 						<div class="color_d">Color<span><?php echo $rowprodlis['proadd_color'] ?></span></div>
 						<div class="size_d">Size<span><?php echo $rowprodlis['proadd_size'] ?></span></div>
 					</div>
+					<select id="quantity" class="form-control" style="width:100px;">
+						<option value="">QTY</option>
+						<?php
+							$x = 1;
+								while($x <= $rowprodlis['proadd_quantity']){
+								?>
+									<option value="<?php echo $x; ?>"><?php echo $x; ?></option>
+								<?php
+								$x++;
+							}
+						?>
+					</select>
+					<p id="msg"></p>
 					<div class="desc_d"><span>Description  -</span><?php echo $rowprodlis['proadd_desc'] ?></div>
 					<div class="button_d">
 						<button class="cart_d">ADD TO CART</button>
-						<button class="buy_d">BUY NOW</button>
+						<button class="buy_d" id="buynow">BUY NOW</button>
 					</div>
 				</div>
 			</div>
@@ -141,6 +163,39 @@ $rowprodlis = mysqli_fetch_array($queryprodlis);
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
+  
+	$(document).ready(function(){
+		$("#buynow").click(function(){
+			var prodId = '<?php echo $proaddlisid; ?>';
+			var userId = '<?php echo $userId; ?>';
+			var quantity = $("#quantity").val();
+			var price = "<?php echo $rowprodlis['proadd_price'] ?>";
+			//price = parseInt(price);
+			//quantity = parseInt(quantity);
+			//var totalamount = price * quantity;
+			if(userId == ''){
+				window.location.href = 'login.php';
+				return false;
+			}
+			if(quantity == ''){
+				$("#msg").html('please select quantity');
+				return false;
+			}
+			
+			$.ajax({
+				url: 'ajax/order.php',
+				type: 'POST',
+				data: {prodId, userId, quantity, price},
+				success: function(resp){
+					console.log(resp);
+				}
+			})
+			
+			
+		})
+	});
+  
+  
+  
 </script>
 </html>

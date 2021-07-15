@@ -479,6 +479,7 @@
 						</div>
 						<div class="clear"></div>
 					</div>
+>>>>>>> 9a460a84fbf4679185eaa179c4835f3648a82668
 				</div>
 			</div>
 		</div>
