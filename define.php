@@ -116,7 +116,7 @@ $rowprodlis = mysqli_fetch_array($queryprodlis);
 					<div class="desc_d"><span>Description  -</span><?php echo $rowprodlis['proadd_desc'] ?></div>
 					<div class="button_d">
 						<button class="cart_d">ADD TO CART</button>
-						<button class="buy_d">BUY NOW</button>
+						<a href="buy-now.php?id=<?php echo $rowprodlis['proadd_id']; ?>" class="btn btn danger buy_d">BUY NOW</a>
 					</div>
 				</div>
 			</div>

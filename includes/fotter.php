@@ -1,5 +1,5 @@
 <!---section-six--->
-<section class="section-six">
+<section class="section-six" >
 	<div class="my-container_a">
 		<div class="row">
 			<div class="col-md-3 pr-0 pl-0">

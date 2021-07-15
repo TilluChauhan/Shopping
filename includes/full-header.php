@@ -4,7 +4,6 @@
 	$solution = mysqli_query($conn, $sql);
 	session_start();
 	if(!isset($_SESSION['user_id'])){
-		header("Location:login.php");
 	}
 	
 ?>
@@ -50,63 +49,62 @@
 							if(isset($_SESSION["user_id"])){
 								$username = $_SESSION["name"];
 								?>	
-						<li class="nav-item sign-in_a" id="dropdown">
-					<a class="nav-link" href="#" id="clickcolor"><span><?php echo $username; ?></span></a>
-					  <div id="dropdown-menu" class="adc">
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-user"></i>
-							  <span>Your Account</span>
-							</a>
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-envelope"></i>
-							  <span>Your Orders</span>
-							</a>
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-heart"></i>
-							  <span>Shortlist</span>
-							</a>
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-hand-peace"></i>
-							  <span>SD Cash</span>
-							</a>
-							<div class="dropdown-divider"></div>
-							<a href="logout.php" class="dropdown-item">
-							  <i class="ni ni-user-run"></i>
-							  <span href="logout.php">Logout</span>
-							</a>
-					</div>
-				</li>
-								
+										<li class="nav-item sign-in_a" id="dropdown">
+									<a class="nav-link" href="#" id="clickcolor"><span><?php echo $username; ?></span></a>
+									  <div id="dropdown-menu" class="adc">
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-user"></i>
+											  <span>Your Account</span>
+											</a>
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-envelope"></i>
+											  <span>Your Orders</span>
+											</a>
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-heart"></i>
+											  <span>Shortlist</span>
+											</a>
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-hand-peace"></i>
+											  <span>SD Cash</span>
+											</a>
+											<div class="dropdown-divider"></div>
+											<a href="logout.php" class="dropdown-item">
+											  <i class="ni ni-user-run"></i>
+											  <span href="logout.php">Logout</span>
+											</a>
+									</div>
+								</li>								
 								<?php
 							}else{
 								?>
 								<li class="nav-item sign-in_a" id="dropdown">
-					<a class="nav-link" href="#" id="clickcolor"><span>Sign In</span><i class="fas fa-user signup"></i></a>
-					  <div id="dropdown-menu" class="adc">
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-user"></i>
-							  <span>Your Account</span>
-							</a>
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-envelope"></i>
-							  <span>Your Orders</span>
-							</a>
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-heart"></i>
-							  <span>Shortlist</span>
-							</a>
-							<a href="#!" class="dropdown-item">
-							  <i class="far fa-hand-peace"></i>
-							  <span>SD Cash</span>
-							</a>
-							<div class="dropdown-divider"></div>
-							<a href="login.php" class="dropdown-item">
-							  <i class="ni ni-user-run"></i>
-							  <span>Register</span>
-							  <span>Login</span>
-							</a>
-					</div>
-				</li>
+									<a class="nav-link" href="#" id="clickcolor"><span>Sign In</span><i class="fas fa-user signup"></i></a>
+									  <div id="dropdown-menu" class="adc">
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-user"></i>
+											  <span>Your Account</span>
+											</a>
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-envelope"></i>
+											  <span>Your Orders</span>
+											</a>
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-heart"></i>
+											  <span>Shortlist</span>
+											</a>
+											<a href="#!" class="dropdown-item">
+											  <i class="far fa-hand-peace"></i>
+											  <span>SD Cash</span>
+											</a>
+											<div class="dropdown-divider"></div>
+											<a href="login.php" class="dropdown-item">
+											  <i class="ni ni-user-run"></i>
+											  <span>Register</span>
+											  <span>Login</span>
+											</a>
+									</div>
+								</li>
 								<?php
 							}
 						?>
