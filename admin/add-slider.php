@@ -87,7 +87,13 @@
 						<h6 class="heading-small text-muted mb-4">Slider information</h6>
 					<div class="pl-lg-4">
 							<div class="row">	
-								
+								<div class="col-lg-6">
+								  <div class="form-group">
+									<label class="form-control-label" >id</label>
+									<input type="text" id="id" value="<?php echo $catch['id'];?>" class="form-control" placeholder="id">
+								  </div>
+								  
+								</div>
 								<div class="col-lg-6">
 								  <div class="form-group">
 									<label class="form-control-label" >Title</label>
@@ -233,7 +239,7 @@
 		
 		$(document).ready(function(){
 			$("#update").click(function(){
-				var Id = '<?php echo $userid ?> ';
+				var Id = $("#id").val();;
 				var title =  $("#title").val();
 
 				var description = $("#des").val();
