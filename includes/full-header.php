@@ -3,9 +3,12 @@
 		$sql ="select * from pro_category";	
 	$solution = mysqli_query($conn, $sql);
 	session_start();
+<<<<<<< HEAD
 	if(!isset($_SESSION['user_id'])){
 	}
 	
+=======
+>>>>>>> 312a1f47235ea2a98fef4cd2c30658d3edb9d6f6
 ?>
 <section class="section-one_a">
 	<div class="my-container_a">
