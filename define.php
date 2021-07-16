@@ -147,6 +147,7 @@ if(isset($_SESSION['user_id'])){
 </section>
 
 
+
 <?php include 'includes/fotter.php'; ?>
 
 <?php include 'includes/js.php'; ?>
@@ -168,7 +169,7 @@ if(isset($_SESSION['user_id'])){
 		$("#buynow").click(function(){
 			var prodId = '<?php echo $proaddlisid; ?>';
 			var userId = '<?php echo $userId; ?>';
-			var quantity = $("#quantity").val();
+			var address = $("#address").val();
 			var price = "<?php echo $rowprodlis['proadd_price'] ?>";
 			//price = parseInt(price);
 			//quantity = parseInt(quantity);
@@ -181,21 +182,28 @@ if(isset($_SESSION['user_id'])){
 				$("#msg").html('please select quantity');
 				return false;
 			}
-			
+			if(address == ''){
+				$("#msg").html('please select address');
+				return false;
+			}
 			$.ajax({
 				url: 'ajax/order.php',
 				type: 'POST',
-				data: {prodId, userId, quantity, price},
-				success: function(resp){
-					console.log(resp);
-				}
+				data: {prodId, userId,  price, address},
+				success: function(response)
+					{
+						console.log(response);
+						if(response == 1){
+							location.reload();
+						}
+					}
 			})
-			
-			
+	
 		})
 	});
+ 
   
-  
+			
   
 </script>
 </html>
