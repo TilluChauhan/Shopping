@@ -12,5 +12,9 @@
 	
 	$result = mysqli_query($conn, $sql);
 	
-	print_r($result);
+	if($result){
+		echo 1;
+	} else {
+		echo 0;
+	}
 ?>
