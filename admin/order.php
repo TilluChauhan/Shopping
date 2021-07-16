@@ -85,7 +85,7 @@
 					?>
 						<tr>
 							<td><?php echo $count; ?></td>
-							<td style="width:150px;"><img src="asset/profront/<?php echo $row['proadd_front_img'] ?>" width="150px" /> <?php echo $row['proadd_name'] ?></td>
+							<td style="width:150px;"><img src="asset/profront/<?php echo $row['proadd_front_img'] ?>" width="100px" /> <?php echo $row['proadd_name'] ?></td>
 							<td><?php echo $row['Address'] ?></td>
 							<td><?php echo $row['user_name'] ?></td>
 							<td><?php echo $row['user_email'] ?></td>
