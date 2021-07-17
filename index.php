@@ -34,7 +34,6 @@
 		</div>
 	</div>
 </section>
-
 <!---section-two--->
 <section class="section-two_a">
 	<div class="my-container_a">
@@ -64,7 +63,7 @@
 							  <i class="far fa-user"></i>
 							  <span>Your Account</span>
 							</a>
-							<a href="#!" class="dropdown-item">
+							<a href="my-order.php" class="dropdown-item">
 							  <i class="far fa-envelope"></i>
 							  <span>Your Orders</span>
 							</a>
@@ -479,7 +478,6 @@
 						</div>
 						<div class="clear"></div>
 					</div>
->>>>>>> 9a460a84fbf4679185eaa179c4835f3648a82668
 				</div>
 			</div>
 		</div>

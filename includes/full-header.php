@@ -1,14 +1,14 @@
 <?php 
 	include 'config/config.php';
-		$sql ="select * from pro_category";	
-	$solution = mysqli_query($conn, $sql);
 	session_start();
-<<<<<<< HEAD
 	if(!isset($_SESSION['user_id'])){
 	}
+	$sql ="select * from pro_category";	
+	$solution = mysqli_query($conn, $sql);
 	
-=======
->>>>>>> 312a1f47235ea2a98fef4cd2c30658d3edb9d6f6
+	$pgs ="select * from proadd";
+	
+	
 ?>
 <section class="section-one_a">
 	<div class="my-container_a">
@@ -59,7 +59,7 @@
 											  <i class="far fa-user"></i>
 											  <span>Your Account</span>
 											</a>
-											<a href="#!" class="dropdown-item">
+											<a href="#" class="dropdown-item">
 											  <i class="far fa-envelope"></i>
 											  <span>Your Orders</span>
 											</a>

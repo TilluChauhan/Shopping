@@ -138,11 +138,7 @@ if(isset($_SESSION['user_id'])){
 					<div class="desc_d"><span>Description  -</span><?php echo $rowprodlis['proadd_desc'] ?></div>
 					<div class="button_d">
 						<button class="cart_d">ADD TO CART</button>
-<<<<<<< HEAD
-						<a href="buy-now.php?id=<?php echo $rowprodlis['proadd_id']; ?>" class="btn btn danger buy_d">BUY NOW</a>
-=======
 						<button class="buy_d" id="buynow">BUY NOW</button>
->>>>>>> 312a1f47235ea2a98fef4cd2c30658d3edb9d6f6
 					</div>
 				</div>
 			</div>
