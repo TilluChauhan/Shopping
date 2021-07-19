@@ -188,6 +188,9 @@ if(isset($_SESSION['user_id'])){
 				data: {prodId, userId, quantity, price},
 				success: function(resp){
 					console.log(resp);
+					if(resp == 1){
+						window.location.href = 'index.php',
+					}
 				}
 			})
 			
