@@ -74,9 +74,10 @@
                     <th scope="col">Squa No.</th>
 					<th scope="col">Price</th>
 					<th scope="col">Description</th>
+					<th scope="col">Featured</th>
 					<th scope="col">Status</th>
 					<th scope="col">Created Date</th>
-					<th scope="col">Buttons</th>
+					<th scope="col">Actions</th>
 				  </tr>
                 </thead>
                 <tbody class="list">
@@ -118,6 +119,17 @@
 					<td class="text-right">
 						<?php echo $row['proadd_desc'] ?>
                     </td>
+					
+					<td><?php if($row['T_Flag'] == 1){ 
+						?>
+						<button onclick="startmark(<?php echo $row['proadd_id']; ?>, <?php echo $row['T_Flag']; ?> )"><i class="fas fa-star yellow-color" style="color:#ff8100;"></i></button>
+						<?php
+					} else {
+						?>
+						<button onclick="startmark(<?php echo $row['proadd_id']; ?>, <?php echo $row['T_Flag']; ?>)"><i class="far fa-star"></i></button>
+						<?php
+					} ?></td>
+					
 					<td class="text-right">
 						<?php echo $row['status'] ?>
                     </td>
@@ -126,8 +138,8 @@
                     </td>
 					<td class="text-right">
 						<a href="productadd.php?id=<?php echo $row['proadd_id']; ?>" class="btn btn-sm btn-primary">Edit</a>
-						<a href="#!" class="btn btn-sm btn-primary">Delete</a>
-					</td>
+						<a onclick="deleterecord(<?php echo $row['proadd_id'] ?>)"  class="btn btn-sm btn-primary" href="javascript:void(0)">Delete</a>
+					</td>	
                   </tr>
 				  	<?php
 				}
@@ -150,5 +162,41 @@
 		include "includes/ajsfiles.php"
 	  ?>
 </body>
-
+<script>
+function deleterecord(id){
+		$.ajax({
+					type: "POST",
+					url: 'ajax/product-delete.php',
+					data: {u_id:id},
+					success: function(response)
+					{
+						console.log(response);
+						if(response == 1){
+							location.reload();
+						}
+					}
+			   });
+		
+	}
+	
+	
+		function startmark(id, T_Flag){
+			var u_status = 0;
+			if(T_Flag == '0'){
+				u_status = 1;
+			}
+				$.ajax({
+					type: "POST",
+					url: 'ajax/trending-product.php',
+					data: {f_id: id, f_status: u_status},
+					success: function(response)
+					{
+						console.log(response);
+						if(response == 1){
+							location.reload();
+						}
+					}
+			   });
+		}
+</script>
 </html>

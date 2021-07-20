@@ -52,7 +52,7 @@
                   <h3 class="mb-0">Add Product Category</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <a href="pro-category-list.php" class="btn btn-sm btn-primary">List</a>
+                  <a href="register-list.php" class="btn btn-sm btn-primary">List</a>
 				  <a href="#!" class="btn btn-sm btn-primary">Add</a>
                 </div>
               </div>
@@ -86,7 +86,7 @@
 					<div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Password</label>
-                        <input type="text" id="pass" value="<?php echo $rowreg ? $rowreg['user_password'] : '' ?>" class="form-control" placeholder="Password">
+                        <input type="password" id="pass" value="<?php echo $rowreg ? $rowreg['user_password'] : '' ?>" class="form-control" placeholder="Password">
                       </div>
                     </div>
                   </div>

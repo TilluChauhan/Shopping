@@ -13,7 +13,7 @@
 	$fileType = $file['type'];
 	$fileType = substr($fileType, 6);
 	$filename = 'pro'.$round.'.'.$fileType;
-	move_uploaded_file($file['tmp_name'], '../admin/asset/profilepic/'.$filename);
+	move_uploaded_file($file['tmp_name'], '../asset/profilepic/'.$filename);
 	
 	if($name != "" && $email != "" &&  $pass !=""){
 		$sql = "insert into user (user_id, user_name, type, user_email, user_password, user_mobile, user_pic, status, created_date) values ('', '".$name."', '".$type."', '".$email."', '".MD5($pass)."', '".$mobile."', '".$filename."', 1, '".$date."')";

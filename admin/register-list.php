@@ -73,6 +73,7 @@
                     <th scope="col">Password</th>
                     <th scope="col">Status</th>
 					<th scope="col">Created date</th>
+					<th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="list">
@@ -110,7 +111,7 @@
                     </td>
 					<td class="text-right">
 						<a href="register.php?id=<?php echo $row['user_id']; ?>" class="btn btn-sm btn-primary">Edit</a>
-						<a href="#!" class="btn btn-sm btn-primary">Delete</a>
+						<a onclick="deleterecord(<?php echo $row['user_id'] ?>)"  class="btn btn-sm btn-primary" href="javascript:void(0)">Delete</a>
 					</td>
                   </tr>
 				  	<?php
@@ -133,6 +134,25 @@
   <?php
 		include "includes/ajsfiles.php"
 	  ?>
+	  
+<script>
+
+function deleterecord(id){
+		$.ajax({
+					type: "POST",
+					url: 'ajax/user-delete.php',
+					data: {u_id:id},
+					success: function(response)
+					{
+						console.log(response);
+						if(response == 1){
+							location.reload();
+						}
+					}
+			   });
+		
+	}
+</script>	  
 </body>
 
 </html>

@@ -148,7 +148,34 @@ if(isset($_SESSION['user_id'])){
 
 
 
+
 <?php include 'includes/fotter.php'; ?>
+
+
+
+<!-- The Modal -->
+  <div class="modal fade" id="success_model">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 <?php include 'includes/js.php'; ?>
 </body>
@@ -169,7 +196,7 @@ if(isset($_SESSION['user_id'])){
 		$("#buynow").click(function(){
 			var prodId = '<?php echo $proaddlisid; ?>';
 			var userId = '<?php echo $userId; ?>';
-			var address = $("#address").val();
+			var quantity = $("#quantity").val();
 			var price = "<?php echo $rowprodlis['proadd_price'] ?>";
 			//price = parseInt(price);
 			//quantity = parseInt(quantity);
@@ -182,28 +209,25 @@ if(isset($_SESSION['user_id'])){
 				$("#msg").html('please select quantity');
 				return false;
 			}
-			if(address == ''){
-				$("#msg").html('please select address');
-				return false;
-			}
+			
 			$.ajax({
 				url: 'ajax/order.php',
 				type: 'POST',
-				data: {prodId, userId,  price, address},
-				success: function(response)
-					{
-						console.log(response);
-						if(response == 1){
-							location.reload();
-						}
+				data: {prodId, userId, quantity, price},
+				success: function(resp){
+					if(resp == 1){
+						$("#success_model").modal();
+					} else {
+						
 					}
+				}
 			})
-	
+			
+			
 		})
 	});
- 
   
-			
+  
   
 </script>
 </html>
