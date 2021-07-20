@@ -587,9 +587,9 @@ background-repeat:no-repeat;}
   box-sizing: border-box
 }
 .show{
-  width: 400px;
+  /*width: 400px;
   height: 400px;
-  z-index:99
+  z-index:99*/
 }
 #show-img { width: 400px; height: 400px; }
 .small-img{
@@ -644,7 +644,15 @@ background-repeat:no-repeat;}
 }
 .image-zoom_d{padding:28px}
 
+.order-wrap{
+	display:flex;
+	background-color:#fff;
+	margin-bottom:15px;
+	padding:20px;
+}
+.p_des{flex:1}
 
+.order-wrap p{margin:0;}
 
 #dropdown{position:relative}
 #dropdown-menu{position:absolute;display:none; background-color:#555555; top:63px; right:0px; width:200px; border-radius:5px 0px 5px 5px; z-index:999}
