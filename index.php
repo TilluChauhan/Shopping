@@ -51,6 +51,7 @@
 			<ul class="nav justify-content-end ">
 				<li class="nav-item">
 					<a class="nav-link cart_a" href="#"><span>Cart</span><i class="fas fa-shopping-cart"></i></a>
+					
 				</li>
 					<?php 
 							if(isset($_SESSION["user_id"])){
@@ -63,7 +64,7 @@
 							  <i class="far fa-user"></i>
 							  <span>Your Account</span>
 							</a>
-							<a href="my-order.php" class="dropdown-item">
+							<a href="user-order.php" class="dropdown-item">
 							  <i class="far fa-envelope"></i>
 							  <span>Your Orders</span>
 							</a>
@@ -93,7 +94,7 @@
 							  <i class="far fa-user"></i>
 							  <span>Your Account</span>
 							</a>
-							<a href="#!" class="dropdown-item">
+							<a href="user-order.php" class="dropdown-item">
 							  <i class="far fa-envelope"></i>
 							  <span>Your Orders</span>
 							</a>

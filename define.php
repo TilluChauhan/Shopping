@@ -147,7 +147,36 @@ if(isset($_SESSION['user_id'])){
 </section>
 
 
+
+
 <?php include 'includes/fotter.php'; ?>
+
+
+
+<!-- The Modal -->
+  <div class="modal fade" id="success_model">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <p>SUCCESS</p> 
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <a  href="index.php" class="btn btn-danger">Shopping Again</a>
+          <a href="user-order.php" class="btn btn-primary" >order</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 <?php include 'includes/js.php'; ?>
 </body>
@@ -187,9 +216,11 @@ if(isset($_SESSION['user_id'])){
 				type: 'POST',
 				data: {prodId, userId, quantity, price},
 				success: function(resp){
-					console.log(resp);
+					console.log(resp);	
 					if(resp == 1){
-						window.location.href = 'index.php',
+						$("#success_model").modal();
+					} else {
+						
 					}
 				}
 			})
