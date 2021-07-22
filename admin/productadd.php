@@ -113,7 +113,7 @@
 									<?php
 										while($row = mysqli_fetch_array($querypro2)){
 									?>
-									<option value="<?php echo $row['pro_cate_id'] ?>"><?php echo $row['pro_cate_name'] ?></option>
+									<option value="<?php echo $row['pro_cate_id'] ?>"><?php echo $row['pro_cate_name'] ?>     </option>
 									<?php
 									}
 									?>

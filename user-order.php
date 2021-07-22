@@ -67,20 +67,15 @@ $queryprodlis = mysqli_query($conn, $userordersql);
 									<p>Total Price: <?php echo $row['Total_Amount']; ?></p>
 									<p>Order Date: <?php echo $row['CreatedDate']; ?></p>
 								</div>
-								<div class="p_act">
-									<?php
-										if($row['Status'] == 1){
-											?>
-												<button class="btn btn-primary">Order Cancel</button>
-											<?php
-										} else {
-											?>
-												Order Cancel
-											<?php
-										}
-									?>
-									
-								</div>
+								<div><?php if($row['Status'] == 1){ 
+								?>
+									<button onclick="buttonchange(<?php echo $row['Order_Id']; ?>, <?php echo $row['Status']; ?> )" type="button" class="btn btn-danger">Order Cancel</button>
+								<?php
+							} else {
+							?>
+									 <span>Order Cancel</span>
+								<?php
+							} ?></div>
 							</div>
 						</div>
 					<?php
@@ -111,8 +106,24 @@ $queryprodlis = mysqli_query($conn, $userordersql);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
   
-  
-  
-  
+
+	function buttonchange(id, status){
+			var u_status = 0;
+			if(status == '0'){
+				u_status = 1;
+			}
+				$.ajax({
+					type: "POST",
+					url: 'ajax/order-button-change.php',
+					data: {u_id: id, u_status: u_status},
+					success: function(response)
+					{
+						console.log(response);
+						if(response == 1){
+							location.reload();
+						}
+					}
+			   });
+		}
 </script>
 </html>

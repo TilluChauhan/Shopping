@@ -660,6 +660,7 @@ background-repeat:no-repeat;}
 .adc a i,
 .adc a span{font-size:13px;}
 .adc a i{padding-left:3px; }
+<<<<<<< HEAD
 .adc a span{margin-left:-5px}
 
 
@@ -705,3 +706,6 @@ background-repeat:no-repeat;}
 .heding{
 	padding:20px;
 }
+=======
+.adc a span{margin-left:-5px}
+>>>>>>> 578e21657d78d346997bbfa1812a11b2f903f5e8

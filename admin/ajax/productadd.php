@@ -34,7 +34,7 @@
 	
 	
 	if($name != "" && $quantity != "" &&  $size !="" &&  $color !="" &&  $price !=""){
-		$sql = "insert into proadd (proadd_id, proadd_name, pro_cate_id,  proadd_quantity, proadd_size, proadd_color, proadd_squa, proadd_price, proadd_desc, proadd_front_img, proadd_side_img, proadd_back_img, status, created_date) values ('', '".$name."', '".$category."', '".$quantity."', '".$size."', '".$color."', '".$squa."', '".$price."', '".$desc."', '".$filename1."', '".$filename2."', '".$filename3."',  1, '".$date."')";
+		$sql = "insert into proadd (proadd_id, proadd_name, pro_cate_id,  proadd_quantity, proadd_size, proadd_color, proadd_squa, proadd_price, proadd_desc, proadd_front_img, proadd_side_img, proadd_back_img, T_Flag,  status, created_date) values ('', '".$name."', '".$category."', '".$quantity."', '".$size."', '".$color."', '".$squa."', '".$price."', '".$desc."', '".$filename1."', '".$filename2."', '".$filename3."', 0, 1, '".$date."')";
 		$query = mysqli_query($conn, $sql);
 		if($query){
 			echo 1;

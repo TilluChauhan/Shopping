@@ -4,9 +4,12 @@
 	$sqlproadd = 'select * from  proadd' ;
 	$queryproadd = mysqli_query($conn,$sqlproadd);
 	
+	$feature_sql = 'select * from proadd where T_Flag = 1';
+	$feature_query = mysqli_query($conn,$feature_sql);
+	
 	
 	$sql ="select * from pro_category";	
-	$solution = mysqli_query($conn, $sql);
+	$solution = mysqli_query($conn, $sql);	
 	
 ?>
 <!DOCTYPE html>
@@ -289,167 +292,29 @@
 		<h2 class="product-two-h2_a">TRENDING PRODUCTS</h2>
 		<div class="main-div-four_a">
 				<div class="owl-carousel owl-theme" id="slider3">
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/one.jpeg" />
-									<i class="far fa-heart heart heart_a"></i>
+						<?php
+						while($row = mysqli_fetch_array($feature_query)){
+						?>
+						<div class="item">
+									<div class="three-slidproducts_a">
+										<a href="define.php?prolisid=<?php echo $row['proadd_id'] ?> ">
+											<div class="three-pro-one-image_a">
+												<img  src="<?php echo 'admin/asset/profront/'.$row['proadd_front_img']; ?>" style="width:100%; height:100%;">
+												<i class="far fa-heart heart_a"></i>
+											</div>
+											<div class="three-pro-one-text_a">
+												<p><?php echo $row['proadd_name'] ?></p>
+												<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+												<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a"><?php echo $row['proadd_price'] ?></span></div>
+												<span class="discount_a">92%OFF</span>
+											</div>
+										</a>
+									</div>
 								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
+						<?php
+						}
+					?>
 					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/two.jpeg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/three.jpg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/four.jpeg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/five.jpg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/six.jpg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="pro-one-image_a">
-									<img src="asset/seven.jpg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/eight.jpg" />
-									<i class="far fa-heart heart"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/nine.jpeg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="products-two_a">
-							<a href="#">
-								<div class="three-pro-one-image_a">
-									<img src="asset/ten.jpeg" />
-									<i class="far fa-heart heart heart_a"></i>
-								</div>
-								<div class="three-pro-one-text_a">
-									<p>Bhawna Collection Loard Shiv Trishul Damru</p>
-									<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-									<div><span class="cut-rate_a">RS 1,499</span><span class="rate_a">RS 113</span></div>
-									<span class="discount_a">92%OFF</span>
-								</div>
-							</a>
-						</div>
-					</div>
-			</div>
 		</div>
 	</div>
 </section>

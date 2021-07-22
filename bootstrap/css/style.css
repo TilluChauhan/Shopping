@@ -1,0 +1,292 @@
+.j-main{
+	width:100%;
+}
+
+.maintain{
+	padding:25px 0;
+}
+
+.j-main .navbar-light .nav-link{
+	font-weight:900;
+	color:#405974; 
+	padding-left:50px;
+	font-size:10px;
+	
+}
+
+.j-main .navbar-nav{
+	
+}
+
+
+
+.main{
+	background-image:url('../image/pic.png');
+	padding:150px 0;
+	background-size:cover;
+	width:100%;	
+}
+
+.m-color{
+	color:#fff;
+	text-align:center;
+	width: 75%;
+    margin: auto;
+}
+
+
+.m-color h1{
+	font-size:70px;
+	font-weight:bold;	
+}
+
+.m-color button{
+	margin-top:20px;
+    width: 250px;
+    padding: 15px;
+    border-radius: 0;
+}
+
+.m-color .jumbotron{
+	background:none;
+	padding:200px 0;
+	margin-bottom:0;
+}
+
+.m-color .btn-success{
+	font-weight:bold;
+	background-color:#00BB9C;
+	border-color:#00BB9C;
+}
+
+.c-padding{
+	padding:50px 0;
+}
+
+.c-padding .jumbotron{
+	background:none;
+}
+.right-color{	
+}
+
+.right-color h2{
+	color:#4E6A88;
+}
+
+.right-color p{
+	color:#405974;
+}
+
+.fill-color{
+	display:flex;
+}
+
+.icon-manage{	
+}
+
+.icon-manage li{	
+	display:inline-block;
+	font-size:3rem;
+	margin-right:25px;
+	color:#00BB9C;
+}
+
+.in-color h2{
+	color:#4E6A88;	
+}
+
+.in-color p{
+	color:#405974;
+}
+
+
+
+.controler{
+	background-color:#E9ECEF;		
+	padding:50px 0;
+}
+
+.head-color {
+	color:#2F4052;
+}
+
+.top{
+	text-align:center;
+	background-color:#fff;
+}
+
+.top h5{
+	margin-top:10px;
+	color:#2F4052;
+}
+
+.top p{
+	color:#405974;
+}
+
+.focus{
+	margin-top:20px;
+	text-align: center;
+}
+
+.manage{
+	padding:100px 0;
+	text-align:center;
+}
+
+.hired{
+	width:75%;
+	margin:auto;
+
+}
+
+.hired h6{
+	font-size:45px;
+	font-family:arial;
+	color:#2F4052;
+	font-weight:600;
+}
+
+.hired p{
+	color:#405974;
+}
+
+.hired button{
+	margin-top:20px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 0;	
+}
+
+.hired .btn-success{
+	font-weight:bold;
+	background-color:#00BB9C;
+	border-color:#00BB9C;
+}
+
+.conect{
+	padding:50px 0;
+	background-color:#2F4052;
+}
+
+.confuse{
+	color:#fff;
+}
+	
+.confuse h6{	
+	margin-bottom:10px;
+}
+	
+.confuse p{
+	color:#8fa4ba;
+}
+
+.confuse a{
+	color:#8fa4ba;
+}
+
+.pointer{
+	color:#fff;
+}
+
+.photo-manger{
+	margin:5px 0;
+}
+
+
+.rubber{
+	color:#fff;
+}
+
+.rubber p{
+	color:#8fa4ba;
+}
+
+.pencil{
+	color:#fff;
+}
+
+.pencil p{
+	color:#8fa4ba;
+}
+
+.pencil .form-control{
+	background-color:#8fa4ba;
+	border:none;
+
+}
+
+.pencil .btn{
+}
+
+.pencil .btn-success{
+	background-color:#01BB9A;
+	font-weight:bold;
+}
+
+
+@media screen and (max-width: 992px){
+	.m-color h1{
+		font-size:40px;
+	}
+	
+	.m-color button{
+		padding:8px;
+		font-size:15px;
+		width:200px;
+	}
+	
+	.fill-color h2{
+		font-size:40px;
+	}
+	
+	.fill-color p{
+		line-height:20px;
+		font-size:15px;		
+	}
+	
+	.pencil .btn-success{
+		font-size:10px;
+		padding:5px;
+	}	
+}
+
+@media screen and (max-width:767px){
+	.m-color h1{
+		font-size:23px;
+	}
+	
+	.m-color p{
+		line-height:20px;
+		font-size:15px;
+	}
+	
+	.fill-color h2{
+		font-size:20px;
+	}
+	
+	.fill-color p{
+		font-size:12px;
+		line-height:15px;		
+	}
+	
+	.hired h6{
+		font-size:20px;
+	}
+	
+	.hired p{
+		font-size:12px;
+		line-height:15px;
+	}
+	
+	.hired button{
+		width:135px;
+		padding:4px;
+		font-size:15px;
+	}
+	
+	
+	
+	
+}
+
